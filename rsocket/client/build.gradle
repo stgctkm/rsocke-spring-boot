@@ -1,0 +1,64 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+allprojects {
+//    apply plugin: 'org.jetbrains.kotlin.jvm'
+//    apply plugin: 'org.jlleitschuh.gradle.ktlint'
+
+//    compileKotlin {
+//        kotlinOptions {
+//            jvmTarget = targetCompatibility
+//            freeCompilerArgs = ['-Xjsr305=strict']
+//        }
+//    }
+//
+//    compileTestKotlin {
+//        kotlinOptions {
+//            jvmTarget = targetCompatibility
+//            freeCompilerArgs = ['-Xjsr305=strict']
+//        }
+//    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+//    idea {
+//        module {
+//            jdkName = targetCompatibility
+//            inheritOutputDirs = false
+//            outputDir = file("$buildDir/classes/kotlin/main")
+//            testOutputDir = file("$buildDir/classes/kotlin/test")
+//        }
+//    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+    }
+}
+
+group = 'rsockrt.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-rsocket'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+    useJUnitPlatform()
+}
